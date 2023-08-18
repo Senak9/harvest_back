@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Client } from './client.entity';
+import { Client } from '../clients/client.entity';
 import { TransactionStatus, TransactionType } from 'src/utils/types';
 
 @Entity({ name: 'transactions' })
