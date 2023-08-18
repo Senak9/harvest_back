@@ -9,7 +9,11 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Client } from '../clients/client.entity';
-import { TransactionStatus, TransactionType } from 'src/utils/types';
+import {
+  TransactionCategory,
+  TransactionStatus,
+  TransactionType,
+} from 'src/utils/types';
 
 @Entity({ name: 'transactions' })
 export class Transaction {
@@ -18,6 +22,9 @@ export class Transaction {
 
   @Column({ type: 'enum', enum: TransactionType })
   type: TransactionType;
+
+  @Column({ type: 'enum', enum: TransactionCategory })
+  category: TransactionCategory;
 
   @Column({ type: 'int' })
   value: number;
@@ -40,5 +47,5 @@ export class Transaction {
   @ManyToOne(() => Client)
   @JoinColumn()
   @JoinTable()
-  client: Client;
+  client: Client | null;
 }

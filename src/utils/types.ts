@@ -8,3 +8,7 @@ export enum TransactionStatus {
   Expired = 'EXPIRED',
   Paid = 'PAID',
 }
+
+export enum TransactionCategory {
+  Food = 'FOOD',
+}
